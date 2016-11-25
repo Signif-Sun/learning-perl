@@ -1,0 +1,20 @@
+#in order to find the max value in the array
+
+sub getMax
+{
+#-----------------------------$_是默认标量，@是默认数组------------------------------------------------------
+    my $tmp_max = shift(@_);
+    foreach (@_)
+    {
+        if($tmp_max < $_)  
+        {
+            $tmp_max = $_;    
+        }
+    }
+    return $tmp_max;
+}
+
+
+$max_value = &getMax(1,3,5,7,9,12,7,0);
+
+print($max_value."\n");
