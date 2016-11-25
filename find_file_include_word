@@ -1,0 +1,18 @@
+#read the file output the line which includes 'fred' or 'Fred'
+
+#       |\t 匹配空格和制表符
+#       [^abc]表示不匹配abc，其中大写\R断行符，但是\D,\W,\S表示是不匹配到数字，单词（含数字和下划线），空白符
+#       \d,\s,\w都是采取常规的ASCII模式，所以要在模式的后面加上a也就是/pattern/a这样来表示采取的ASCII模式
+#       \1 == \g{1} 表示反向引用的方法，从模式内的第一个左括号算起
+
+@ARGV = qw/file1 file2 file3/;
+
+foreach(<>)
+{
+    if(/[Ff]red/)
+    {
+        print $_;
+    }
+}
+
+
