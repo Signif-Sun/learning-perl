@@ -1,0 +1,22 @@
+#--------------表示使用较为严格定义，全局变量必须要提前声明，但是隐私变量my可以不必要-------------
+use strict;   
+#--------------其中state类似c++中的函数作用域的static，一次声明持续有效-------------------------
+
+sub getIndex
+{
+#--------------隐私作用域，其中$word是后面数组的第一个元素（参数列表的第一个元素），而后的@array是数组剩余的全部元素------
+    my ($word,@array) = @_;
+    
+    foreach(0..$#array)
+    {
+        if($array[$_] eq $word)
+        {
+            return $_;
+        }
+    }
+    -1;
+}
+
+my @array = qw/sun xiao hui is  a good student/;
+my $word = 'hui';
+my $index = &getIndex($word,@array);
