@@ -1,0 +1,35 @@
+#调用子函数，以及利用其中的参数部分赋值之后并使用
+check_p(
+    test => "test2",
+    john => "john_test");
+    
+#子函数
+sub check_p()
+{
+    my %args = (
+        test => "",
+        john => "john_name",
+        xiaohui => "xiaohui",
+        susan => "susan",
+        @_);   #需要输入@_才可以使用该hash作为参数
+    
+    print($args{john},"\n");
+    
+    if($args{test} eq "test")
+    {
+        print("the test hash is right\n");    
+    }
+    else
+    {
+        print("the first one is wrong\n");    
+    }
+    
+     if($args{john} eq "john_test")
+    {
+        print("the john hash is right\n");    
+    }
+    else
+    {
+        print("the second one  is wrong\n");    
+    }
+}
